@@ -1,7 +1,7 @@
-import React from 'react'
+import DashboardWidget from '@/widget/ui/dashboard'
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <DashboardWidget />
   )
 }
