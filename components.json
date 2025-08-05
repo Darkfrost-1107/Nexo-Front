@@ -5,10 +5,10 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "src/shared/global/index.css",
+    "css": "src/shared/styles/global/index.css",
     "baseColor": "neutral",
     "cssVariables": true,
-    "prefix": "tw-",
+    "prefix": "",
     "tsx": true,
     "rsc": false
   },
