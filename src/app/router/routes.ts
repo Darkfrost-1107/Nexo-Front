@@ -1,7 +1,7 @@
 import type { RouteObject } from "react-router"
-import LoginPage from "@/pages/login"
 import LoginRoutes from "@/pages/login/urls"
 import HomeRoutes from "@/pages/home/urls"
+import DashboardRoutes from "@/pages/dashboard/urls"
 
 const routes : RouteObject[] = [
     {
@@ -11,6 +11,10 @@ const routes : RouteObject[] = [
     {
         path: "/login",
         children : LoginRoutes
+    },
+    {
+        path: "/dashboard",
+        children: DashboardRoutes
     }
 ]
 
