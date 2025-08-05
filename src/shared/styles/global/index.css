@@ -184,3 +184,9 @@ button:focus-visible {
     @apply bg-background text-foreground;
   }
 }
+
+/* My OWN CONFIGURATION */
+
+@theme {
+  --color-primary: #398300;
+}
