@@ -1,4 +1,3 @@
-import React from 'react';
 import { Avatar, AvatarImage } from "@/shared/components/ui/avatar";
 
 export default function LoginLogo() {
