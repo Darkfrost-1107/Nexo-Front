@@ -1,9 +1,14 @@
-
+import {Button} from '@/shared/components/ui/button'
+// import {IconGitBranch} from '@tabler/icons-react';
 export default function ActionButtons() {
   return (
-    <div className="action-buttons">
-      <button type="button">📄 Generar Reporte</button>
-      <button type="button">👥 Crear asesor</button>
+    // <div className="action-buttons">
+    //   <button type="button">📄 Generar Reporte</button>
+    //   <button type="button">👥 Crear asesor</button>
+    // </div>
+    <div>
+        <Button variant="outline" size="sm" className="text-white"> Generar Reportes </Button>
+        <Button variant="outline" size="sm" className="text-white"> Crear Asesor </Button>
     </div>
   );
 }
