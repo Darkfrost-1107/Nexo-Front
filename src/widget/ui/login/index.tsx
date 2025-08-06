@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import LoginWidget from './loginWidget';
 
-export default function LoginWidget() {
-  return (
-    <div>LoginWidget</div>
-  )
-}
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+  <React.StrictMode>
+    <LoginWidget />
+  </React.StrictMode>
+);
+export { LoginWidget };
+
