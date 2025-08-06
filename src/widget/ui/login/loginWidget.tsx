@@ -1,4 +1,3 @@
-import React from 'react';
 import LoginImage from './loginImage';
 import LoginLogo from './loginLogo';
 import LoginForm from './loginForm';
