@@ -1,19 +1,28 @@
+
 export default function SearchForm() {
   return (
-    <div className="search-form">
-      <div className="search-row">
-        <label htmlFor="nombre">Nombre</label>
-        <input type="text" id="nombre" placeholder="Buscar por nombre" />
-        <button type="button">🔍</button>
+    <div className="space-y-4">
+      <div className="flex items-center gap-2">
+        <label className="w-24 font-semibold">Nombre</label>
+        <input
+          type="text"
+          className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
+        />
       </div>
 
-      <div className="search-row">
-        <label htmlFor="codigo">Código</label>
-        <input type="text" id="codigo" placeholder="Código" />
+      <div className="flex items-center gap-2">
+        <label className="w-24 font-semibold">Código</label>
+        <input
+          type="text"
+          className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
+        />
 
-        <label htmlFor="dni">DNI</label>
-        <input type="text" id="dni" placeholder="DNI" />
-        <button type="button">▶</button>
+        <label className="w-16 font-semibold">DNI</label>
+        <input
+          type="text"
+          className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
+        />
+       
       </div>
     </div>
   );
