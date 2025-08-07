@@ -1,7 +1,14 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader } from '@/shared/components/ui/sidebar'
 import { Button } from '@/shared/components/ui/button'
+import { useNavigate } from 'react-router'
 
 export default function DashboardWidgetSidebar() {
+
+  let navigate = useNavigate()
+
+  function goTo(to: string){
+    return () => navigate(to)
+  }
 
   return (
     <div className="h-full">
@@ -11,9 +18,9 @@ export default function DashboardWidgetSidebar() {
           <SidebarGroup>
             <SidebarGroupContent>
               <div className='flex flex-col gap-4 mt-1'>
-                <Button>Asesores</Button>
-                <Button>Visitas</Button>
-                <Button>Clientes</Button>
+                <Button onClick={goTo("/dashboard/asesores")}>Asesores</Button>
+                <Button onClick={goTo("/dashboard/visitas")}>Visitas</Button>
+                <Button onClick={goTo("/dashboard/clientes")}>Clientes</Button>
               </div>
             </SidebarGroupContent>
           </SidebarGroup>
