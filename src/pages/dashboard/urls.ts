@@ -1,7 +1,7 @@
-import DashboardWidget from "@/widget/ui/dashboard";
 import type { RouteObject } from "react-router";
 import DashboardPage from ".";
 import HomeDashboardPage from "./home";
+import AsesoresDashboardPage from "./asesores";
 
 const DashboardRoutes : RouteObject[] = [
     {
@@ -11,6 +11,11 @@ const DashboardRoutes : RouteObject[] = [
             {
                 index: true,
                 Component: HomeDashboardPage,
+            },
+
+            {
+                path: "asesores",
+                Component: AsesoresDashboardPage,
             }
         ]
     }
