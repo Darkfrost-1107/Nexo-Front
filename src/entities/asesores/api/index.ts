@@ -1,11 +1,11 @@
 import CRUDStandardApiService from "@/shared/api/configs/crud-standard";
-import MockupConnector from "@/shared/api/connectors/mockup-connector";
+import BusinessServiceConnector from "@/shared/api/connectors/business-connector";
 
 class AsesoresService extends CRUDStandardApiService<AsesorData>{
 
     constructor(){
         super({
-            connector: MockupConnector,
+            connector: BusinessServiceConnector,
             baseURL: "/asesores",
             debug: import.meta.env.VITE_DEBUG === "true"         
         })
