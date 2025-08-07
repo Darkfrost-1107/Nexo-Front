@@ -1,5 +1,5 @@
 type ServiceConfig = {
-    connector: Axios;
+    connector: Connector;
     baseURL: string;
     debug: boolean;
 }
