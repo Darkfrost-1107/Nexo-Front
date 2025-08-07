@@ -7,7 +7,7 @@ class StandardApiService {
         this.handlers = handlers;
     }
 
-    protected async fetch(config : RequestConfig, action?: string) {
+    protected async fetch(config : ServiceRequestConfig, action?: string) {
         try {
             const response = await this.config.connector.request(config);
             this.handlers?.onSuccess?.(response);
