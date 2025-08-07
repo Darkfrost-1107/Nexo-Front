@@ -16,13 +16,12 @@ export default function SearchForm() {
           type="text"
           className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
         />
-
+        
         <label className="w-16 font-semibold">DNI</label>
         <input
           type="text"
           className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
         />
-       
       </div>
     </div>
   );

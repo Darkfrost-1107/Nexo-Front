@@ -8,7 +8,7 @@ class CRUDStandardApiService<T> extends StandardApiService{
     }
 
     public async list(params: Record<string, any> = {}) {
-        this.fetch({
+        return await this.fetch({
             method: "get",
             url: this.config.baseURL,
             params: params
@@ -16,7 +16,7 @@ class CRUDStandardApiService<T> extends StandardApiService{
     }
 
     public async create(data: T) {
-        this.fetch({
+        return await this.fetch({
             method: "post",
             url: this.config.baseURL,
             data: data
@@ -24,7 +24,7 @@ class CRUDStandardApiService<T> extends StandardApiService{
     }
 
     public async update(id: string, data: T) {
-        this.fetch({
+        return await this.fetch({
             method: "put",
             url: `${this.config.baseURL}/${id}`,
             data: data
@@ -32,14 +32,14 @@ class CRUDStandardApiService<T> extends StandardApiService{
     }
 
     public async delete(id: string){
-        this.fetch({
+        return await this.fetch({
             method: "delete",
             url: `${this.config.baseURL}/${id}`
         })
     }
 
     public async retrieve(id: string) {
-        this.fetch({
+        return await this.fetch({
             method: "get",
             url: `${this.config.baseURL}/${id}`
         })
