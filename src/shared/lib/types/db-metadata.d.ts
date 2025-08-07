@@ -1,0 +1,3 @@
+type DBMetadata = {
+    db?: IDBDatabase
+}
