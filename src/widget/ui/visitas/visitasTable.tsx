@@ -23,36 +23,6 @@ const visitasData = [
     cultivo: "Cultivo B",
     ubicacion: "Cusco",
     status: "completada"
-  },
-  {
-    id: 3,
-    asesor: "Ana López",
-    cliente: "Carlos Ruiz",
-    fechaRecomendacion: "17/05/2025",
-    fechaVisita: "22/05/2025",
-    cultivo: "Cultivo C",
-    ubicacion: "Lima",
-    status: "pendiente"
-  },
-  {
-    id: 4,
-    asesor: "Ana López",
-    cliente: "Pedro Silva",
-    fechaRecomendacion: "18/05/2025",
-    fechaVisita: "23/05/2025",
-    cultivo: "Cultivo A",
-    ubicacion: "Trujillo",
-    status: "programada"
-  },
-  {
-    id: 5,
-    asesor: "Carlos Torres",
-    cliente: "Lucia Mendoza",
-    fechaRecomendacion: "19/05/2025",
-    fechaVisita: "24/05/2025",
-    cultivo: "Cultivo B",
-    ubicacion: "Piura",
-    status: "completada"
   }
 ];
 
