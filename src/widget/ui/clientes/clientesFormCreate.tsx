@@ -16,11 +16,12 @@ import { CultivosDialog } from "./clientesCultivosDialog";
 
 export default function CrearClienteDialog() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button 
-          variant="default" 
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 shadow-sm"
+    <div className="h-10">
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            variant="default"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 shadow-sm w-full"
         >
           <UserPlus className="h-4 w-4 mr-2" />
           Crear cliente
@@ -28,15 +29,15 @@ export default function CrearClienteDialog() {
       </DialogTrigger>
 
       <DialogContent className="max-w-4xl p-0 overflow-hidden">
-        <DialogHeader className="bg-green-600 text-white p-6">
+        <DialogHeader className="bg-green-600 text-white p-5">
           <DialogTitle className="text-xl font-semibold">
             Crear cliente
           </DialogTitle>
         </DialogHeader>
 
-        <div className="p-6">
+        <div className="p-4">
           {/* Tipo de cliente */}
-          <div className="mb-6">
+          <div className="mb-0">
             <Label className="text-sm font-semibold text-gray-700 mb-3 block">
               Tipo de cliente
             </Label>
@@ -53,7 +54,7 @@ export default function CrearClienteDialog() {
           </div>
 
           {/* Formulario */}
-          <form className="grid grid-cols-2 gap-6">
+          <form className="grid grid-cols-2 gap-6 mt-1">
             <div className="space-y-2">
               <Label className="text-sm font-semibold text-gray-700">Nombre</Label>
               <Input 
@@ -116,7 +117,7 @@ export default function CrearClienteDialog() {
             </div>
 
             {/* Botones */}
-            <div className="col-span-2 flex justify-end gap-3 mt-6 pt-4 border-t border-gray-200">
+            <div className="col-span-2 flex justify-end gap-3 mt-2 pt-2 border-t border-gray-200">
               <DialogClose asChild>
                 <Button variant="outline" className="border-gray-300 hover:bg-gray-50">
                   Cancelar
@@ -128,5 +129,6 @@ export default function CrearClienteDialog() {
         </div>
       </DialogContent>
     </Dialog>
+    </div>
   );
 }

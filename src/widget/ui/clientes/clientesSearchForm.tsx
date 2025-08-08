@@ -2,12 +2,13 @@ import { Button } from "@/shared/components/ui/button";
 
 export default function SearchForm() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <div className="flex items-center gap-2">
         <label className="w-24 font-semibold">Nombre</label>
         <input
           type="text"
           className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
+          placeholder="Ingrese el nombre del cliente"
         />
       </div>
 
@@ -16,12 +17,14 @@ export default function SearchForm() {
         <input
           type="number"
           className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
+          placeholder="RUC"
         />
         
         <label className="w-16 font-semibold">DNI</label>
         <input
           type="text"
           className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
+          placeholder="DNI"
         />
         
       </div>

@@ -4,9 +4,6 @@ import { Checkbox } from '@/shared/components/ui/checkbox';
 const clientesData = [
   { id: 1, nombre: "Juan Perez", cultivo: "Cultivo A", asesor: "Maria Lopez" },
   { id: 2, nombre: "Ana García", cultivo: "Cultivo B", asesor: "Carlos Ruiz" },
-  { id: 3, nombre: "Pedro Martínez", cultivo: "Cultivo A", asesor: "Maria Lopez" },
-  { id: 4, nombre: "Lucia Fernández", cultivo: "Cultivo C", asesor: "José Torres" },
-  { id: 5, nombre: "Roberto Silva", cultivo: "Cultivo B", asesor: "Carlos Ruiz" },
 ];
 
 export default function ClientesTable() {
@@ -16,19 +13,20 @@ export default function ClientesTable() {
         <TableHeader>
           <TableRow className="bg-green-600 hover:bg-green-600">
             <TableHead className="w-12 text-white font-semibold">
-              <Checkbox className="border-white data-[state=checked]:bg-white data-[state=checked]:text-green-600" />
             </TableHead>
+            <TableHead className="text-white font-semibold"></TableHead>
             <TableHead className="text-white font-semibold">Nombre</TableHead>
             <TableHead className="text-white font-semibold">Cultivo</TableHead>
             <TableHead className="text-white font-semibold">Asesor</TableHead>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className="divide-y divide-gray-200">
           {clientesData.map((cliente) => (
             <TableRow 
               key={cliente.id} 
               className="hover:bg-gray-50 border-b border-gray-200"
             >
+              <TableCell className="py-3"></TableCell>
               <TableCell className="py-3">
                 <Checkbox />
               </TableCell>
