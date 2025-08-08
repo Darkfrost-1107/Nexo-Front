@@ -19,6 +19,7 @@ export default function AsesoresTable() {
           <TableRow className="bg-green-600 hover:bg-green-600">
             <TableHead className="w-12 text-white font-semibold">
             </TableHead>
+            <TableHead className="text-white font-semibold"></TableHead>
             <TableHead className="text-white font-semibold">Nombre</TableHead>
             <TableHead className="text-white font-semibold">Contacto</TableHead>
           </TableRow>
@@ -29,6 +30,7 @@ export default function AsesoresTable() {
               key={asesor.id} 
               className="hover:bg-gray-50 border-b border-gray-200"
             >
+              <TableCell className="py-3"></TableCell>
               <TableCell className="py-3">
                 <Checkbox />
               </TableCell>

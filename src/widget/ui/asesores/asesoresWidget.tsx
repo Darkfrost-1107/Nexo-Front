@@ -4,7 +4,7 @@ import AsesoresTable from './asesoresTable';
 
 export default function AsesoresPage() {
   return (
-    <div className="p-6 min-h-screen">
+    <div className="p-6 h-9">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">Asesores</h1>
 
