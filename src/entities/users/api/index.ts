@@ -11,7 +11,7 @@ class UsersService extends CRUDStandardApiService<AsesorData>{
         })
     }
 
-    public login(username: string, password: string){
+    public async login(username: string, password: string){
         return await super.fetch({
             method: "post",
             data: {
@@ -22,17 +22,19 @@ class UsersService extends CRUDStandardApiService<AsesorData>{
         }, "login")
     }
 
-    public logout(){
+    public async logout(){
         // # TO DO refactorizar url building 
-        super.fetch({
+        return await super.fetch({
             method: "post",
             url: `${this.config.baseURL}/auth/logout/`
         }, "logout")
     }
 
-    public profile(){
+    public async profile(){
         // TODO
-        super.fetch({}, "view profile")
+        return await super.fetch({
+            
+        }, "view profile")
     }
 
 }
