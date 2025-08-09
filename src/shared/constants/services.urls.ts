@@ -1,9 +1,9 @@
-import {main} from "./nodes"
+import nodes from "./nodes"
 
 const ServiceUrls = {
-    main: `http://${main}`,
-    users: `http://${main}`,
-    business: `http://${main}/business`,
+    main: `http://${nodes.main}`,
+    users: `http://${nodes.main}`,
+    business: `http://${nodes.main}/business`,
 }
 
 export default ServiceUrls
