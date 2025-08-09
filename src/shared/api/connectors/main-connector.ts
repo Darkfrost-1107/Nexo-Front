@@ -1,7 +1,8 @@
 import axios from 'axios';
 import ServiceUrls from '@/shared/constants/services.urls'
+import JWTInterceptor from '../interceptors/jwt-interceptor';
 
-const MainServiceConnector = axios.create({
+const MainConnector = axios.create({
     baseURL: ServiceUrls.main ,
     timeout: 10000,
     headers: {
@@ -9,4 +10,6 @@ const MainServiceConnector = axios.create({
     },
 })
 
-export default MainServiceConnector;
+MainConnector.interceptors.request.use(JWTInterceptor)
+
+export default MainConnector;
