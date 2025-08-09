@@ -1,6 +1,6 @@
 import axios from 'axios';
 import ServiceUrls from '@/shared/constants/services.urls'
-import JWTInterceptor from '../interceptors/jwt-interceptor';
+import { JWTErrorInterceptor, JWTInterceptor } from '../interceptors/jwt-interceptor';
 
 const BusinessServiceConnector = axios.create({
     baseURL: ServiceUrls.business,
@@ -11,5 +11,6 @@ const BusinessServiceConnector = axios.create({
 })
 
 BusinessServiceConnector.interceptors.request.use(JWTInterceptor)
+BusinessServiceConnector.interceptors.response.use((a) => a, JWTErrorInterceptor)
 
 export default BusinessServiceConnector;

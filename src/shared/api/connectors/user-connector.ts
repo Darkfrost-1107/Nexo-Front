@@ -1,6 +1,6 @@
 import axios from 'axios';
 import ServiceUrls from '@/shared/constants/services.urls'
-import JWTInterceptor from '../interceptors/jwt-interceptor';
+import { JWTErrorInterceptor, JWTInterceptor } from '../interceptors/jwt-interceptor';
 
 const UserServiceConnector = axios.create({
     baseURL: ServiceUrls.users,
@@ -11,5 +11,7 @@ const UserServiceConnector = axios.create({
 })
 
 UserServiceConnector.interceptors.request.use(JWTInterceptor)
+UserServiceConnector.interceptors.response.use((a) => a , JWTErrorInterceptor)
+
 
 export default UserServiceConnector;
