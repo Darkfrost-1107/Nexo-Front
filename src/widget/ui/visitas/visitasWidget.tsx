@@ -1,21 +1,27 @@
 import VisitasTable from "./visitasTable";
 import SearchForm from "./visitasSearchForm";
 import ActionButtons from "./visitasButtonAction";
+
 export default function VisitasDashboardPage() {
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Visitas</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="lg:col-span-2">
-          <SearchForm />
+    <div className="p-6 h-9">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-2xl font-bold text-gray-800 mb-6">Visitas</h1>
+        
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-3">
+              <SearchForm />
+            </div>
+            <div className="flex flex-col gap-3">
+              <ActionButtons />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col justify-start items-end gap-4">
-          <ActionButtons />
-        </div>
-      </div>
 
-      <div className="mt-8">
-        <VisitasTable />
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+          <VisitasTable />
+        </div>
       </div>
     </div>
   );
