@@ -1,5 +1,6 @@
 import CRUDStandardApiService from "@/shared/api/configs/crud-standard";
 import UserServiceConnector from "@/shared/api/connectors/user-connector";
+import StatusCodes from "@/shared/constants/status-codes";
 
 class UsersService extends CRUDStandardApiService<AsesorData>{
 
@@ -12,7 +13,7 @@ class UsersService extends CRUDStandardApiService<AsesorData>{
     }
 
     public async login(username: string, password: string){
-        return await super.fetch({
+        const response = await super.fetch({
             method: "post",
             data: {
                 username,
@@ -20,6 +21,25 @@ class UsersService extends CRUDStandardApiService<AsesorData>{
             },
             url: `${this.config.baseURL}/auth/login/` 
         }, "login")
+
+        if(response.status == StatusCodes.REQUEST_COMPLETED){
+            return response
+        }
+
+        if(response.status == StatusCodes.UNAUTHORIZED){
+            if(response.data.response.data.error){
+                return {
+                    status: StatusCodes.INVALID_CREDENTIALS,
+                    data: response.data
+                }
+            } else {
+                return {
+                    status: StatusCodes.TOKEN_NOT_VALID,
+                    data: response.data
+                }
+            }
+        }
+        return response
     }
 
     public async logout(){
