@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import routes from './routes'
-import "@/app/App.css"
 
 export default function AppRouter() {
 

@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client'
 
 import './shared/styles/global/index.css'
 
-import AppRouter from './app/router/index.tsx'
+import AppBuild from './app/build/index.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppRouter />
+    <AppBuild />
   </StrictMode>,
 )
