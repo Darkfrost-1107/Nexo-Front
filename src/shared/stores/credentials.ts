@@ -1,36 +1,31 @@
-import { create } from 'zustand';
+import { createStore } from 'zustand/vanilla';
 import { persist } from 'zustand/middleware';
 
 // Definir el estado de la aplicación
 interface UserState {
-    username: string
-    jwt: string
+  username: string;
+  jwt: string;
+}
 
-    // Acciones
-    setJWT: (jwt: string) => void 
-    setUser: (username: string) => void 
+interface UserActions {
+  setJWT: (jwt: string) => void;
+  setUser: (username: string) => void;
 }
 
   // Acciones
 //   setMessages: (messages: Message[]) => void;
 
-// Crear store
-export const useUserStore = create<UserState>()(
+// Crear store vanilla
+export const userStore = createStore<UserState & UserActions>()(
   persist(
-    (set) => ({
-        username: "",
-        jwt: "",
-      
-      // Acciones
-        setUser: (username) => set({username}),
-        setJWT: (jwt) => set({jwt})
+    (set, get) => ({
+      username: "",
+      jwt: "",
+      setUser: (username) => set({ username }),
+      setJWT: (jwt) => set({ jwt }),
     }),
     {
       name: 'nexo',
-    //   partialize: (state) => ({ 
-    //     sessionId: state.sessionId,
-    //     theme: state.theme,
-    //   }),
     }
   )
 );

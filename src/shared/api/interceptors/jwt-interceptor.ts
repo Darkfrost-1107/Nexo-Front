@@ -1,7 +1,11 @@
-import { useUserStore } from "@/shared/stores/credentials"
+import { userStore } from "@/shared/stores/credentials"
 
 function JWTInterceptor(config : ServiceRequestConfig) {   
-    config.headers["Authorization"] = `Bearer ${useUserStore().jwt}`
+    let jwt = userStore.getState().jwt
+    if(jwt){
+        config.headers["Authorization"] = `Bearer ${jwt}`
+    }
+    // config.headers["Access-Control-Allow-Origin'"] = "*"
     return config
 
 }
