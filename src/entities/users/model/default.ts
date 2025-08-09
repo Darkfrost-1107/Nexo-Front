@@ -55,6 +55,7 @@ function generateDefault(data?: Partial<UserData>): UserData{
         email: "",
         names: "",
         username: "",
+        password: "",
         phone_number: "",
         user_type: "",
         updated_date: "",
