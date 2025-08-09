@@ -1,13 +1,16 @@
 import * as React from "react";
-import { ChevronDownIcon } from "lucide-react";
+import { CalendarIcon, Search } from "lucide-react";
 import { Calendar } from "@/shared/components/ui/calendar";
 import { Button } from "@/shared/components/ui/button";
-import { Label } from "@radix-ui/react-label";
+import { Input } from "@/shared/components/ui/input";
+import { Label } from "@/shared/components/ui/label";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/shared/components/ui/popover";
+
+const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
 
 function DatePickerField({
   label,
@@ -23,29 +26,38 @@ function DatePickerField({
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="flex flex-col gap-3">
-      <Label className="px-1">{label}</Label>
+    <div className="space-y-2">
+      <Label className="text-sm font-semibold text-gray-700">{label}</Label>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="w-48 justify-between font-normal"
+            className={cn(
+              "w-full justify-start text-left font-normal border-gray-300 focus:border-green-500 focus:ring-green-500",
+              !selectedDate ? "text-gray-500" : undefined
+            )}
           >
-            {selectedDate
-              ? selectedDate.toLocaleDateString()
-              : placeholder || "Select date"}
-            <ChevronDownIcon />
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            {selectedDate ? (
+              selectedDate.toLocaleDateString('es-PE', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+              })
+            ) : (
+              <span>{placeholder || "Seleccionar fecha"}</span>
+            )}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto overflow-hidden p-0" align="start">
           <Calendar
             mode="single"
             selected={selectedDate}
-            captionLayout="dropdown"
             onSelect={(date) => {
               onChange(date);
               setOpen(false);
             }}
+            initialFocus
           />
         </PopoverContent>
       </Popover>
@@ -58,36 +70,37 @@ export default function SearchForm() {
   const [endDate, setEndDate] = React.useState<Date | undefined>(undefined);
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center gap-2">
+    <div className="space-y-6">
+      {/* Filtros de fecha */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <DatePickerField
-            label="Desde"
-            selectedDate={startDate}
-            onChange={setStartDate}
-            placeholder="dd/mm/yyyy"
+          label="Fecha desde"
+          selectedDate={startDate}
+          onChange={setStartDate}
+          placeholder="dd/mm/yyyy"
         />
         <DatePickerField
-            label="Hasta"
-            selectedDate={endDate}
-            onChange={setEndDate}
-            placeholder="dd/mm/yyyy"
+          label="Fecha hasta"
+          selectedDate={endDate}
+          onChange={setEndDate}
+          placeholder="dd/mm/yyyy"
         />
       </div>
 
-      <div className="flex items-center gap-2 mt-4">
-        <label htmlFor="asesor" className="w-24 font-semibold">
+      {/* Filtro por asesor */}
+      <div className="flex items-center gap-4">
+        <Label className="w-20 text-sm font-semibold text-gray-700">
           Asesor
-        </label>
-        <input
-          id="asesor"
+        </Label>
+        <Input
           type="text"
-          className="flex-1 border border-gray-300 px-3 py-2 rounded-md"
-          placeholder="Ingrese el nombre del asesor"
+          placeholder="Buscar por asesor..."
+          className="flex-1 border-gray-300 focus:border-green-500 focus:ring-green-500"
         />
-        <Button
-          type="submit"
-          className="ml-2 bg-blue-600 text-white hover:bg-blue-700"
+        <Button 
+          className="bg-green-600 hover:bg-green-700 text-white px-6"
         >
+          <Search className="h-4 w-4 mr-2" />
           Buscar
         </Button>
       </div>

@@ -1,10 +1,15 @@
 import {Button} from '@/shared/components/ui/button'
 import CrearAsesorDialog from './asesoresFormCreate';
+import { FileText} from 'lucide-react'
+
 
 export default function ActionButtons() {
   return (
-    <div className="flex flex-col gap-4 mt-1">
-        <Button size="sm" className="text-white"> Generar Reportes </Button>
+    <div className="flex flex-col gap-3">
+        <Button size="default" className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 shadow-sm"> 
+          <FileText className="h-4 w-4 mr-2" />
+          Generar Reporte
+        </Button>
         <CrearAsesorDialog />
     </div>
   );
