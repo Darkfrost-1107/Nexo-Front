@@ -3,13 +3,13 @@ import { persist } from 'zustand/middleware';
 
 // Definir el estado de la aplicación
 interface UserState {
-  username: string;
+  user: unknown;
   jwt: string;
 }
 
 interface UserActions {
   setJWT: (jwt: string) => void;
-  setUser: (username: string) => void;
+  setUser: (user: unknown) => void;
 }
 
   // Acciones
@@ -19,9 +19,9 @@ interface UserActions {
 export const userStore = createStore<UserState & UserActions>()(
   persist(
     (set, get) => ({
-      username: "",
+      user: "",
       jwt: "",
-      setUser: (username) => set({ username }),
+      setUser: (user) => set({ user }),
       setJWT: (jwt) => set({ jwt }),
     }),
     {
