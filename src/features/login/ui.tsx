@@ -1,10 +1,12 @@
-import UsersService from '@/entities/users/api'
-import useUserUI from '@/entities/users/ui'
+import { useRef } from 'react'
+import { useNavigate } from 'react-router'
+import { toast } from 'sonner'
+
 import { Button } from '@/shared/components/ui/button'
 import { Form } from '@/shared/components/ui/form'
-import { userStore } from '@/shared/stores/credentials'
-import React, { useRef } from 'react'
-import { Link, useNavigate } from 'react-router'
+import useUserUI from '@/entities/users/ui'
+
+import { login } from './logic'
 
 export default function LoginFeatureUI() {
     
@@ -19,22 +21,19 @@ export default function LoginFeatureUI() {
     const pending = useRef(false)
     const navigate = useNavigate()
 
-    function HandleSubmit({username, password}: UserData){
+    function HandleSubmit(user: UserData){
         if(pending.current) return;
 
         pending.current = true
         
-        const service = new UsersService()
-        async function fetch(){
-            const {access, user} = await service.login(username, password)
-            userStore.setState({
-                jwt: access
-            })
-            console.log(user)
+        login(user).then(({status, feedback}) => {
+            if(!status){
+                toast(feedback)
+                return;
+            }
             navigate("/dashboard")
-            pending.current = false
-        }
-        fetch().catch(() => {
+
+        }).finally(() => {
             pending.current = false
         })
     }
