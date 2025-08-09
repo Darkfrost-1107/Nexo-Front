@@ -1,0 +1,1 @@
+type GenerateDefaultFunction<T> = (val? : Partial<T>) => T 

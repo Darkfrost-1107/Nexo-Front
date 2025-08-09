@@ -1,0 +1,1 @@
+type ModelValidator = ZodType
