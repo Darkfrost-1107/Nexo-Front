@@ -4,6 +4,7 @@ import LoginForm from './loginForm';
 import { LinkAsButton } from './loginButton'
 import ForgotPassword from './forgotPassword';
 import './../../../shared/styles/global/login.css';
+import LoginFeatureUI from '@/features/login/ui';
 
 export default function LoginWidget() {
   return (
@@ -16,8 +17,9 @@ export default function LoginWidget() {
                 <LoginLogo />
             </div>
           <div className="form-container">
-            <LoginForm />
-            <LinkAsButton />
+            {/* <LoginForm />
+            <LinkAsButton /> */}
+            <LoginFeatureUI />
             <ForgotPassword />
           </div>
         </div>
