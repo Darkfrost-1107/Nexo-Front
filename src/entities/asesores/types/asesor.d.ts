@@ -1,5 +1,5 @@
 type AsesorData = {
     id: string
-    user: UserData
+    user: UserData | string
     status: ObjectStatus
 }
