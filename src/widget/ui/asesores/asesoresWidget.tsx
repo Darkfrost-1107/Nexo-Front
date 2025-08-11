@@ -1,6 +1,7 @@
 import SearchForm from './asesoresSearchForm';
 import ActionButtons from './asesoresButtonAction';
 import AsesoresTable from './asesoresTable';
+import ListAsesoresFeature from '@/features/asesores/list';
 
 export default function AsesoresPage() {
   return (
@@ -20,7 +21,8 @@ export default function AsesoresPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <AsesoresTable />
+          {/* <AsesoresTable /> */}
+          <ListAsesoresFeature />
         </div>
       </div>
     </div>
