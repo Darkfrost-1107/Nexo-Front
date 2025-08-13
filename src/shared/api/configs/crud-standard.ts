@@ -7,7 +7,7 @@ class CRUDStandardApiService<T> extends StandardApiService{
         super(config, handlers);
     }
 
-    public async list(params: Record<string, any> = {}) {
+    public async list(params: Record<string, any> = {}) : Promise<CRUDStandardResponse<T[]>>{
         return await this.fetch({
             method: "get",
             url: this.config.baseURL,
@@ -15,7 +15,7 @@ class CRUDStandardApiService<T> extends StandardApiService{
         })
     }
 
-    public async create(data: T) {
+    public async create(data: T) : Promise<CRUDStandardResponse<T>> {
         return await this.fetch({
             method: "post",
             url: this.config.baseURL,
@@ -23,7 +23,7 @@ class CRUDStandardApiService<T> extends StandardApiService{
         })
     }
 
-    public async update(id: string, data: T) {
+    public async update(id: string, data: T): Promise<CRUDStandardResponse<T>> {
         return await this.fetch({
             method: "put",
             url: `${this.config.baseURL}/${id}`,
@@ -31,14 +31,14 @@ class CRUDStandardApiService<T> extends StandardApiService{
         })
     }
 
-    public async delete(id: string){
+    public async delete(id: string): Promise<StandardResponse<undefined>>{
         return await this.fetch({
             method: "delete",
             url: `${this.config.baseURL}/${id}`
         })
     }
 
-    public async retrieve(id: string) {
+    public async retrieve(id: string): Promise<CRUDStandardResponse<T>> {
         return await this.fetch({
             method: "get",
             url: `${this.config.baseURL}/${id}`
