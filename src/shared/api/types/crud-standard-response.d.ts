@@ -1,6 +1,6 @@
-type CRUDStandardResponse <T> = StandardResponse<CRUDStandard>
+type CRUDStandardResponse <T> = StandardResponse<CRUDStandard<T>>
 
-type CRUDStandard = {
+type CRUDStandard <T> = {
     count: number
     next: string
     previous: string
