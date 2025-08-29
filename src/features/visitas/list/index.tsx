@@ -1,12 +1,12 @@
 import { DataTable } from '@/shared/components/ui/data-table'
 import React, { useEffect, useRef, useState } from 'react'
 import { columns } from './columns'
-import AsesoresService from '@/entities/asesores/api'
 import StatusCodes from '@/shared/constants/status-codes'
+import VisitasService from '@/entities/visitas/api'
 
-export default function ListAsesoresFeature() {
+export default function ListVisitasFeature() {
 
-    const [data, setData] = useState<AsesorData[]>([])
+    const [data, setData] = useState<VisitaData[]>([])
     const pending = useRef(false)
 
     useEffect( () => {
@@ -14,20 +14,20 @@ export default function ListAsesoresFeature() {
         pending.current = true
 
         async function fetchData(){
-            const asesores = new AsesoresService()
-            const {status, data} = await asesores.list()
+            const visitas = new VisitasService()
+            const {status, data} = await visitas.list()
 
             if(status == StatusCodes.REQUEST_COMPLETED) {
-                setData(data.results)
+                const visitas: VisitaData[] = data.results
+                setData(visitas)
             }
-
         }
 
-        fetchData(). finally(() => {
+        fetchData().finally(() => {
             pending.current = false
         })
-
     }, [])
+
 
   return (
     <div className='w-full'>

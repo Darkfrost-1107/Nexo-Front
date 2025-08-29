@@ -1,6 +1,8 @@
 import VisitasTable from "./visitasTable";
 import SearchForm from "./visitasSearchForm";
 import ActionButtons from "./visitasButtonAction";
+import ListVisitas from '@/features/visitas/list';
+
 
 export default function VisitasDashboardPage() {
   return (
@@ -20,7 +22,7 @@ export default function VisitasDashboardPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <VisitasTable />
+          <ListVisitas />
         </div>
       </div>
     </div>

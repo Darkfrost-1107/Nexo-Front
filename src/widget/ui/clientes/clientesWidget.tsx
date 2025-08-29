@@ -1,6 +1,7 @@
 import SearchForm from "./clientesSearchForm";
 import ActionButtons from "./clientesButtonAction";
 import ClientesTable from "./clientesTable";
+import ListClientes from '@/features/clientes/list';
 
 export default function ClientesPage() {
   return (
@@ -20,7 +21,7 @@ export default function ClientesPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <ClientesTable />
+          <ListClientes />
         </div>
       </div>
     </div>
