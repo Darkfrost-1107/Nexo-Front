@@ -9,6 +9,14 @@ class ClientesService extends CRUDStandardApiService<ClienteData>{
             debug: import.meta.env.VITE_DEBUG === "true"  
         })
     }
+
+    public async listClientes(cliente: ClienteData, params: Record<string, any>){
+        const clients = new ClientesService()
+        const response = await clients.list({ ...params,
+            cliente: cliente.id
+        })
+        return response
+    }
 }
 
 export default ClientesService
