@@ -1,7 +1,7 @@
 type ClienteData = {
     id: string,
-    user: UserData | string,
+    user: UserData | undefined,
     // cultivo: CultivoData | string,
-    asesor: AsesorData | string,
+    asesor: AsesorData | undefined,
     status: ObjectStatus
 }

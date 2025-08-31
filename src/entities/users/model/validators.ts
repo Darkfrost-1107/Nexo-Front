@@ -1,7 +1,7 @@
 import ObjectStatus from "@/shared/constants/status";
 import z from "zod";
 
-const validators : z.ZodType<UserData> = z.object({
+const UserValidators : z.ZodType<UserData> = z.object({
     // id: z.uuid(),
     username: z.string(),
     // names: z.string(),
@@ -18,4 +18,5 @@ const validators : z.ZodType<UserData> = z.object({
     // updated_at: z.string(), // or z.date()
     // etc.
 });
-export default validators
+
+export default UserValidators

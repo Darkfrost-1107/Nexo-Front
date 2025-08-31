@@ -1,6 +1,5 @@
 type AsesorData = {
-    asesor: any
     id: string
-    user: UserData | string
+    user: UserData | undefined
     status: ObjectStatus
 }

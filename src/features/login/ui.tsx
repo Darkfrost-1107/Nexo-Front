@@ -12,8 +12,8 @@ export default function LoginFeatureUI() {
     
     const {
         components: {
-            UserPassword,
-            UserUsername,
+            Password: UserPassword,
+            Username: UserUsername,
         },
         form
     } = useUserUI()
