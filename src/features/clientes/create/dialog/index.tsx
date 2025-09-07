@@ -10,6 +10,8 @@ import { Button } from '@/shared/components/ui/button'
 import useClientUI from '@/entities/clientes/ui'
 import { Form } from '@/shared/components/ui/form'
 import ClientesService from '@/entities/clientes/api'
+import SearchAsesor from '@/entities/asesores/ui/search'
+import { AsesorCombobox } from '@/entities/asesores/ui/AsesoresList'
 
 export default function FeatureDialog() {
 
@@ -104,7 +106,7 @@ export default function FeatureDialog() {
               </div>
 
               <div className="space-y-2">
-                {/* <Label className="text-sm font-semibold text-gray-700">Asesor</Label>
+                <Label className="text-sm font-semibold text-gray-700">Asesor</Label>
                 <Select>
                   <SelectTrigger className="border-gray-300 focus:border-green-500 focus:ring-green-500">
                     <SelectValue placeholder="Seleccionar asesor" />
@@ -115,8 +117,12 @@ export default function FeatureDialog() {
                     <SelectItem value="asesor3">José Torres</SelectItem>
                     <SelectItem value="asesor4">Ana Mendoza</SelectItem>
                   </SelectContent>
-                </Select> */}
+                </Select>
                 <AsesorSelect />
+                <AsesorCombobox options={[]}
+                  // value={form.getValues().asesor as AsesorData | undefined}
+                  // onChange={(value) => form.setValue("asesor", value)}
+                />
               </div>
 
               {/* Botones */}

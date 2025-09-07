@@ -35,10 +35,10 @@ export default function ListClientesFeature() {
     new Map(
         data
         .map(c => {
-            if (typeof c.asesor !== "string" && typeof c.asesor.user !== "string" && c.asesor.user?.names) {
+            if (typeof c.asesor !== "string" && typeof c.asesor?.user !== "string" && c.asesor?.user?.names) {
             return [
-                c.asesor.user.names,
-                { value: c.asesor.user.names, label: c.asesor.user.names }
+                c.asesor?.user.names,
+                { value: c.asesor?.user.names, label: c.asesor?.user.names }
             ] as [string, { value: string; label: string }]
             }
             return null
@@ -49,9 +49,13 @@ export default function ListClientesFeature() {
 
 
   return (
-    <div className='w-full'>
+    <>
         <AsesorCombobox options={asesores} />
-        <DataTable columns={columns} data={data} />
-    </div>
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div className='w-full'>
+                <DataTable columns={columns} data={data} />
+            </div>
+        </div>
+    </>
   )
 }

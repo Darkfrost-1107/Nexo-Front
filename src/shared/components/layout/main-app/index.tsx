@@ -21,7 +21,7 @@ export default function MainAppLayout({ children, header, sidebar, title}: MainA
       <div className="grow flex items-center justify-center h-full">
         { sidebar ? sidebar : "" }
         <main className="grow p-2 flex h-full">
-          <Card className='grow'>
+          <Card className='grow overflow-y-scroll'>
             {
               title ? 
                 <CardHeader>

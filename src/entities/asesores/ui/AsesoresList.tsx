@@ -15,14 +15,28 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/shared/components/ui/popover"
+import AsesoresService from "../api"
 
 interface AsesorComboboxProps {
   options: { value: string; label: string }[]
 }
 
-export function AsesorCombobox({ options }: AsesorComboboxProps) {
+export function AsesorCombobox({ }: AsesorComboboxProps) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = React.useState<AsesorData | null>(null)
+
+  const [options, setOptions] = React.useState<AsesorData[]>([])
+
+  React.useEffect(() => {
+    // Fetch options from API or other source
+    const fetchOptions = async () => {
+      const asesores = new AsesoresService()
+      const data = await asesores.list()
+      setOptions(data.data.results)
+    }
+
+    fetchOptions()
+  }, [])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -34,7 +48,7 @@ export function AsesorCombobox({ options }: AsesorComboboxProps) {
           className="w-[250px] justify-between"
         >
           {value
-            ? options.find((o) => o.value === value)?.label
+            ? options.find((o) => o.id === value?.id)?.user?.names ?? "Asesor no Identificado"
             : "Selecciona un asesor..."}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -47,18 +61,18 @@ export function AsesorCombobox({ options }: AsesorComboboxProps) {
             <CommandGroup>
               {options.map((opt) => (
                 <CommandItem
-                  key={opt.value}
-                  value={opt.value}
+                  key={opt.id}
+                  value={opt.user?.names ?? "Asesor no Identificado"}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
-                    setOpen(false)
+                    setValue(opt === value ? null : opt)
+                    setOpen(false) 
                   }}
                 >
-                  {opt.label}
+                  {opt.user?.names ?? "Asesor no Identificado"}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === opt.value ? "opacity-100" : "opacity-0"
+                      value === opt ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>

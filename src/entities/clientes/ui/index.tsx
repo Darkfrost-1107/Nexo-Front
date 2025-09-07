@@ -4,11 +4,13 @@ import useClient from "../model/useClient";
 export default function useClientUI(initialData: Partial<ClienteData>) {
   const form = useClient(initialData);
 
-  const Asesor = () => {
+  function Asesor() {
     return (
       <SearchAsesor
-        form={form}
-        search="asesor"
+        value={form.getValues().asesor as AsesorData | undefined}
+        onChange={(value: AsesorData | undefined) => form.setValue("asesor", value)}
+        // form={form}
+        // search="asesor"
       />
     );
   };
